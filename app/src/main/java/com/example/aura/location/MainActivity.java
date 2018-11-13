@@ -54,6 +54,19 @@ public class MainActivity extends AppCompatActivity implements DapatkanAlamatTas
         btnLoc = (Button) findViewById(R.id.btnLocation);
         mAndroidImageView = (ImageView) findViewById(R.id.imgMap);
 
+        mLocationCallback = new LocationCallback(){
+            @Override
+            public void onLocationResult(LocationResult locationResult) {
+//                super.onLocationResult(locationResult);
+
+                // jika tracking aktif, proses reverse geocode manjadi data alamat
+                if(mTrackingLocation){
+                    new DapatkanAlamatTask(MainActivity.this, MainActivity.this)
+                            .execute(locationResult.getLastLocation());
+                }
+            }
+        };
+
         // Animasi
         mRotateAnim = (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.rotate );
         mRotateAnim.setTarget(mAndroidImageView);
@@ -227,21 +240,4 @@ public class MainActivity extends AppCompatActivity implements DapatkanAlamatTas
         return locationRequest;
     }
 
-    private LocationCallback locationCallback(){
-        mLocationCallback = new LocationCallback(){
-            @Override
-            public void onLocationResult(LocationResult locationResult) {
-//                super.onLocationResult(locationResult);
-
-                // jika tracking aktif, proses reverse geocode manjadi data alamat
-                if(mTrackingLocation){
-                    new DapatkanAlamatTask(MainActivity.this, MainActivity.this)
-                            .execute(locationResult.getLastLocation());
-                }
-            }
-        };
-        return  locationCallback();
-    }
-
-    // konversi dr LocationRequest dengan LocationCallback
 }
