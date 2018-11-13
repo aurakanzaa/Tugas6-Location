@@ -123,43 +123,7 @@ public class MainActivity extends AppCompatActivity implements DapatkanAlamatTas
 //
 //    }
 
-    //end
-//    private void mulaiTrackingLokasi(){
-//        if(ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
-//                != PackageManager.PERMISSION_GRANTED){
-//            ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION} ,
-//                    REQUEST_LOCATION_PERMISSION );
-//        } else {
-////            Log.d("GETPERMISSION", "getLocation : permission granted");
-//            mFusedLocationClient.getLastLocation().addOnSuccessListener(
-//                    new OnSuccessListener<Location>() {
-//                        @Override
-//                        public void onSuccess(Location location) {
-//                            if(location != null){
-////                                get lang long
-//
-////                                mLastLocation = location;
-////                                mLocationTextView. setText(
-////                                        getString(R.string.location_text,
-////                                                mLastLocation.getLatitude(),
-////                                                mLastLocation.getLongitude(),
-////                                                mLastLocation.getTime())
-////                                );
-//                                new DapatkanAlamatTask(MainActivity.this, MainActivity.this).execute(location);
-//                            } else {
-//                                mLocationTextView.setText("Lokasi tidak tersedia");
-//                            }
-//                        }
-//                    }
-//            );
-//        }
-//        mLocationTextView.setText(getString(R.string.alamat_text, "sedang mencari alamat",
-//                System.currentTimeMillis()));
-//        mTrackingLocation = true;
-//        btnLoc.setText("Stop Tracking Lokasi");
-//        mRotateAnim.start();
-//
-//    }
+
 
 
     private void mulaiTrackingLokasi(){
