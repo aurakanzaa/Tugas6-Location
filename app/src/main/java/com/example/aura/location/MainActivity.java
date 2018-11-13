@@ -26,12 +26,16 @@ import com.google.android.gms.tasks.OnSuccessListener;
 
 public class MainActivity extends AppCompatActivity implements DapatkanAlamatTask.onTaskSelesai{
 
+    // btn location
     public Button btnLoc;
+
+    // variable dg tipe Location
     private Location mLastLocation;
 
     // obj location callback
     private LocationCallback mLocationCallback;
 
+    // var dg tipe FusedLocationProviderClient
     private FusedLocationProviderClient mFusedLocationClient;
     public TextView mLocationTextView;
 
@@ -202,6 +206,7 @@ public class MainActivity extends AppCompatActivity implements DapatkanAlamatTas
 
     @Override
     public void onTaskCompleted(String result) {
+        // update UI dengan tampilan hasil alamat
 //        mLocationTextView.setText(getString(R.string.alamat_text, result, System.currentTimeMillis()));
 
 

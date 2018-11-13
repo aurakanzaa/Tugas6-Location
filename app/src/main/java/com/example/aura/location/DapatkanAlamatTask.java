@@ -33,18 +33,32 @@ public class DapatkanAlamatTask extends AsyncTask<Location, Void, String> {
     @Override
     protected String doInBackground(Location... locations) {
 //        return null;
+
+        // object geocorder
         Geocoder geocoder = new Geocoder(mContext, Locale.getDefault());
+
+        // object location mengambil object pertama saja dari location karena kita hanya ingin mengambil 1 alamat saja
         Location location = locations[0];
+
+        // list object address
         List<Address> alamat = null ;
+
+        // untuk menyimpan hasil alamat resultMessage
         String resultMessage = "";
 
+        // try catch digunakan untuk mendapat data list alamat dari obj Location yg menangkap
+        // error jika tdk ada jaringan
         try{
             alamat = geocoder.getFromLocation(
                     location.getLatitude(),
                     location.getLongitude(),1 );
         } catch (IOException ioException){
             resultMessage = "service tidak tersedia";
+
+            // parameter ke 3 adalah jml maks alamat
             Log.e("lokasiError", resultMessage, ioException);
+
+            // catch ini untuk menangkap error ketika long dan lat invalid
         } catch (IllegalArgumentException illegalArgumentException){
             resultMessage = "koordinat invalid";
             Log.e("lokasi error", resultMessage+"."+
@@ -74,6 +88,7 @@ public class DapatkanAlamatTask extends AsyncTask<Location, Void, String> {
 
         return resultMessage;
     }
+
 
     interface onTaskSelesai{
         void onTaskCompleted(String result);

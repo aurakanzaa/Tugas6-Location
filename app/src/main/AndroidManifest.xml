@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.aura.location">
 
+    <!--menambahkan location service API menggunakan location provider untuk menyediakan-->
+    <!--akurasi tinggi dan ketepatan lokasi dengan resource power rendah dan optimasi batrai-->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
